@@ -1,0 +1,36 @@
+---Prework----
+    [X] Set up 
+        [X]serverFolder
+            [X]modules
+            [X]publicFolder
+                [X]scriptsFolder
+                    [x]client.js
+                [X]stylesFolder
+                    [x]bootstrap.min.css
+                    [X]bootstrap.min.css.map
+                    [X]style.css
+                [X]vendorsFolder
+                    [X] jquery.min.js
+                [X]index.html
+            [X] server.js
+        [X].gitignore
+            [X]node_modules/
+            [X].DS_Store
+            [X]*.log
+        [X]npm init
+        [X]npm install
+        [X]npm install express
+        [X]npm install body-parser
+        [X]npm install jquery
+[ ]double check dependencies in package.json
+
+
+[ ]HTML - SETUP
+    [X]export and import 
+    [ ]Source in scripts and links
+    [ ]Create two input elements 
+    [ ]Create +, -, *, / operating buttons 
+    [ ]Create button to submit ('=') 
+    [ ]Create button to clear(reset) 
+    [ ]Create div/h1 in body to append results to 
+    [ ]Create ul below results for history of calculations
