@@ -19,10 +19,14 @@ app.post("/calculate", (req,res) => {
     console.log('This is the req.body ', req.body);
     //grabs the input values and equalsButton op value
     let equation = req.body;
-
     console.log('this is the equation data!', equation);
-
-    calculate
+    resultsArray.unshift({
+        firstNum: equation.firstNum,
+        lastNum: equation.lastNum,
+        op: equation.op,
+        total: calculate(equation)
+    })
+    res.sendStatus(201);
 })
 
 app.get("/results", (req, res) => {
@@ -36,3 +40,25 @@ app.get("/clear", (req, res) =>{
     res.send(resultsArray);
 })
 
+function calculate(equation){
+    if(equation.op === "+"){
+        let result = 
+        (equation.firstNum + equation.lastNum);
+        return result; 
+    }
+    if(equation.op === "-"){
+        let result = (equation.firstNum - equation.lastNum);
+        return result; 
+    }
+    if(equation.op === "*"){
+        let result = (equation.firstNum * equation.lastNum);
+        return result; 
+    }
+    if(equation.op === "+"){
+        let result = (equation.firstNum / equation.lastNum);
+        return result; 
+    }
+    if(equation.op === ""){
+        alert('No operator selected');
+    }
+}

@@ -37,7 +37,7 @@ function onReady(){
             url: '/results'
         }).then(function(response){
             console.log('this is the calculations array', response);
-            renderToDom(response);
+            // renderToDom(response);
         }).catch(function(response){
             console.log('Request failed');
         })
@@ -68,12 +68,12 @@ function onReady(){
     $(`.equalsButton`).data("op", "/");
     }
 
-    function renderToDom(array){
-        $(`.total`).empty();
-        for(let index of array){
-            console.log('render to DOM the results', array);
-            if 
-        }
-    }
+    // function renderToDom(array){
+    //     $(`.total`).empty();
+    //     for(let index of array){
+    //         console.log('render to DOM the results', array);
+    //         if 
+    //     }
+    // }
 
 
