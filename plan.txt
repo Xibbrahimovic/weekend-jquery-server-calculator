@@ -27,10 +27,10 @@
 
 [ ]HTML - SETUP
     [X]export and import 
-    [ ]Source in scripts and links
-    [ ]Create two input elements 
-    [ ]Create +, -, *, / operating buttons 
-    [ ]Create button to submit ('=') 
-    [ ]Create button to clear(reset) 
-    [ ]Create div/h1 in body to append results to 
+    [X]Source in scripts and links
+    [X]Create two input elements 
+    [X]Create +, -, *, / operating buttons 
+    [X]Create button to submit ('=') 
+    [X]Create button to clear(reset) 
+    [X]Create div/h1 in body to append results to 
     [ ]Create ul below results for history of calculations
