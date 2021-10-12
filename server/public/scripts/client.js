@@ -23,7 +23,7 @@ function onReady(){
                 op: $(`.equalsButton`).data("op")
             }
         }).then(function(response){
-            console.log('This is the ');
+            console.log('This is the POST', response);
         }).catch(function(response){
             console.log('Request Failed');
         })
@@ -37,7 +37,7 @@ function onReady(){
             url: '/results'
         }).then(function(response){
             console.log('this is the calculations array', response);
-            // renderToDom(response);
+            renderToDom(response);
         }).catch(function(response){
             console.log('Request failed');
         })
@@ -57,6 +57,7 @@ function onReady(){
 
     function add(){
     $(`.equalsButton`).data("op", "+");
+    console.log('This is adding!');
     }
     function subtract(){
     $(`.equalsButton`).data("op", "-");
@@ -68,12 +69,15 @@ function onReady(){
     $(`.equalsButton`).data("op", "/");
     }
 
-    // function renderToDom(array){
-    //     $(`.total`).empty();
-    //     for(let index of array){
-    //         console.log('render to DOM the results', array);
-    //         if 
-    //     }
-    // }
+    function renderToDom(array){
+        $(`.total`).empty();
+        for(let index of array){
+            console.log('render to DOM the results', array);
+         $(`.total`).unshift(`
+         <h1>${index.results}</h1>
+         <ul>${index.firstNum}${index.op}${index.lastNum}'='${index.results}</ul> 
+         `)       
+         }
+    }
 
 

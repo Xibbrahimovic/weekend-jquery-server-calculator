@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 let resultsArray = [];
 
 //this needs to be added for GET and POST routes
@@ -20,7 +20,7 @@ app.post("/calculate", (req,res) => {
     //grabs the input values and equalsButton op value
     let equation = req.body;
     console.log('this is the equation data!', equation);
-    resultsArray.unshift({
+    resultsArray.push({
         firstNum: equation.firstNum,
         lastNum: equation.lastNum,
         op: equation.op,
@@ -54,7 +54,7 @@ function calculate(equation){
         let result = (equation.firstNum * equation.lastNum);
         return result; 
     }
-    if(equation.op === "+"){
+    if(equation.op === "/"){
         let result = (equation.firstNum / equation.lastNum);
         return result; 
     }
