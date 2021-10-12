@@ -30,7 +30,7 @@ app.post("/calculate", (req,res) => {
 })
 
 app.get("/results", (req, res) => {
-    console.log('This is the getCalculations button');
+    console.log('This is the getCalculations button get request');
     res.send(resultsArray);
 })
 

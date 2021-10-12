@@ -24,6 +24,7 @@ function onReady(){
             }
         }).then(function(response){
             console.log('This is the POST', response);
+            renderToDom(response);
         }).catch(function(response){
             console.log('Request Failed');
         })
@@ -34,7 +35,7 @@ function onReady(){
         //get calculations from the server
         $.ajax({
             method: 'GET',
-            url: '/results'
+            url: "/results"
         }).then(function(response){
             console.log('this is the calculations array', response);
             renderToDom(response);
@@ -73,9 +74,9 @@ function onReady(){
         $(`.total`).empty();
         for(let index of array){
             console.log('render to DOM the results', array);
-         $(`.total`).unshift(`
-         <h1>${index.results}</h1>
-         <ul>${index.firstNum}${index.op}${index.lastNum}'='${index.results}</ul> 
+         $(`.total`).append(`
+         <h1>${index.total}</h1>
+         <ul>${index.firstNum}${index.op}${index.lastNum}'='${index.total}</ul> 
          `)       
          }
     }
