@@ -17,14 +17,16 @@ function onReady(){
         $.ajax({
             method: 'POST',
             url: '/calculate',
-            data:{
+            data:{ //grabbing values from input fields and assigning operator to property 
                 firstNum: $(`#firstNum`).val(),
                 lastNum: $(`#lastNum`).val(),
                 op: $(`.equalsButton`).data("op")
             }
         }).then(function(response){
-            console.log('This is the POST', response);
-            renderToDom(response);
+            console.log('This is the response', response);
+            $(`#firstNum`).val('');
+            $(`#lastNum`).val('');//clearing input fields after using 
+            getCalculations();
         }).catch(function(response){
             console.log('Request Failed');
         })
@@ -38,7 +40,8 @@ function onReady(){
             url: "/results"
         }).then(function(response){
             console.log('this is the calculations array', response);
-            renderToDom(response);
+            renderToDom(response);//displaying results array to DOM
+            $(`.equalsButton`).data("op");//clearing the operator assigned to it 
         }).catch(function(response){
             console.log('Request failed');
         })
@@ -51,12 +54,13 @@ function onReady(){
         }).then(function(response){
             console.log('this is the calculations array', response);
             renderToDom(response);
+            $(`.total`).empty();//clear the total class, since in code it appears out of the clear in renderToDOM bracket
         }).catch(function(response){
             console.log('Request failed');
         })
     }
 
-    function add(){
+    function add(){//probably a more efficient way to assign operator, but this concept worked for me, so I went with it 
     $(`.equalsButton`).data("op", "+");
     console.log('This is adding!');
     }
@@ -71,14 +75,17 @@ function onReady(){
     }
 
     function renderToDom(array){
-        $(`.total`).empty();
+        $(`.history`).empty();
         for(let index of array){
             console.log('render to DOM the results', array);
-         $(`.total`).append(`
-         <h1>${index.total}</h1>
-         <ul>${index.firstNum}${index.op}${index.lastNum}'='${index.total}</ul> 
-         `)       
+         $(`.history`).append(`
+            <li>${index.firstNum}${index.op}${index.lastNum} = ${index.total}
+            </li>
+         `)  //grab values from each index and append it to the dom
+         $(`.total`).empty();//empty out most recent result
+         $(`.total`).append(`<h1>${index.total}</h1>`);  //append most recent result to dom  
          }
+
     }
 
 

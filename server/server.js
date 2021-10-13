@@ -18,14 +18,15 @@ app.listen(PORT, () =>{
 app.post("/calculate", (req,res) => {
     console.log('This is the req.body ', req.body);
     //grabs the input values and equalsButton op value
-    let equation = req.body;
+    let equation = req.body;//reassigning value to equation variable 
     console.log('this is the equation data!', equation);
-    resultsArray.push({
+    resultsArray.push({ //pushing data into resultsArray
         firstNum: equation.firstNum,
         lastNum: equation.lastNum,
-        op: equation.op,
-        total: calculate(equation)
+        op: equation.op, 
+        total: calculate(equation) //call function and pass in property values for calculation
     })
+
     res.sendStatus(201);
 })
 
@@ -37,13 +38,13 @@ app.get("/results", (req, res) => {
 app.get("/clear", (req, res) =>{
     console.log("This is the clear button GET");
     resultsArray = [];
-    res.send(resultsArray);
+    res.send(resultsArray);//
 })
-
+//if statements help pull in operator and carry out calculation properly 
 function calculate(equation){
     if(equation.op === "+"){
         let result = 
-        (equation.firstNum + equation.lastNum);
+        (parseFloat(equation.firstNum) + parseFloat(equation.lastNum));
         return result; 
     }
     if(equation.op === "-"){
